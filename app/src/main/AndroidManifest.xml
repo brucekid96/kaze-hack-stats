@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kazehackstats">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KazeHackStats">
+        <activity
+            android:name=".domain.LigueChoosed"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".domain.MainActivity" />
+        <activity android:name=".domain.PremiereLeague" />
+        <activity android:name=".domain.Bundesliga" />
+        <activity android:name=".domain.LaLiga" />
+        <activity android:name=".domain.SerieA" />
+        <activity android:name=".domain.Ligue1" />
+        <activity android:name=".domain.Championship" />
+        <activity android:name=".domain.Eredivisie" />
+        <activity android:name=".domain.JupilerPro" />
+        <activity android:name=".domain.LigaPortugal" />
+        <activity android:name=".domain.ShotsStandings" />
+        <activity android:name=".domain.NBA" />
+    </application>
+
+</manifest>

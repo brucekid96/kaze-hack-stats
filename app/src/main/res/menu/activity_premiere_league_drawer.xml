@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:id="@+id/grp1" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
+    </group>
+
+
+    <group android:id="@+id/grp2" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_shots"
+            android:title="Shots" />
+        <item
+            android:id="@+id/nav_shots_on_g"
+            android:title="Shots on G" />
+
+        <item
+            android:id="@+id/nav_corners"
+            android:title="Corners" />
+        <item
+            android:id="@+id/nav_throws_in"
+            android:title="Throws in" />
+        <item
+            android:id="@+id/nav_saves"
+            android:title="Saves" />
+        <item
+            android:id="@+id/nav_fouls"
+            android:title="Fouls" />
+        <item
+            android:id="@+id/nav_tackles"
+            android:title="Tackles" />
+
+    </group>
+    <group android:id="@+id/grp3" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home_shots"
+            android:title="H-Shots" />
+        <item
+            android:id="@+id/nav_home_shots_on_g"
+            android:title="H-shots on G" />
+
+        <item
+            android:id="@+id/nav_home_corners"
+            android:title="H-Corners" />
+        <item
+            android:id="@+id/nav_home_throws_in"
+            android:title="H-Throws in" />
+        <item
+            android:id="@+id/nav_home_saves"
+            android:title="H-Saves" />
+        <item
+            android:id="@+id/nav_home_fouls"
+            android:title="H-Fouls" />
+        <item
+            android:id="@+id/nav_home_tackles"
+            android:title="H-Tackles" />
+    </group>
+    <group android:id="@+id/grp4" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_away_shots"
+            android:title="A-Shots" />
+        <item
+            android:id="@+id/nav_away_shots_on_g"
+            android:title="A-Shots on G" />
+
+        <item
+            android:id="@+id/nav_away_corners"
+            android:title="A-Corners" />
+        <item
+            android:id="@+id/nav_away_throws_in"
+            android:title="A-Throws in" />
+        <item
+            android:id="@+id/nav_away_saves"
+            android:title="A-Saves" />
+        <item
+            android:id="@+id/nav_away_fouls"
+            android:title="A-Fouls" />
+        <item
+            android:id="@+id/nav_away_tackles"
+            android:title="A-Tackles" />
+    </group>
+
+
+
+
+
+
+
+</menu>

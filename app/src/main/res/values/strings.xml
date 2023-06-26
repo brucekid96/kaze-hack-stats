@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">kaze hack stats</string>
+    <string name="premier_league_activity">Premier League</string>
+    <string name="liga_activity">Liga</string>
+    <string name="serieA_activity">Serie A</string>
+    <string name="bundesliga_activity">Bundesliga</string>
+    <string name="ligue1_activity">Ligue 1</string>
+    <string name="championship_activity">Championship</string>
+    <string name="eredivisie_activity">Eredivisie</string>
+    <string name="jupiler_pro_league_activity">Jupiler Pro </string>
+    <string name="liga_portugal_activity">Liga Portugal</string>
+    <string name="nba_activity">NBA</string>
+
+    <string name="navigation_drawer_open">open drawer</string>
+    <string name="navigation_drawer_close">close drawer</string>
+</resources>

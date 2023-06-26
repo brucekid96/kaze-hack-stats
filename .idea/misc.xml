@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/app_bar_bundesliga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/app_bar_championship.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_eredivisie.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_jupiler_pro.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_la_liga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/app_bar_la_liga_portugal.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_ligue1.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_nba.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/app_bar_premiere_league.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/app_bar_serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/bundesliga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/championship.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/content_bundesliga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/content_championship.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/content_eredivisie.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/content_jupiter_pro.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/content_la_liga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/content_liga_portugal.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/content_ligue1.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/content_nba.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/content_premiere_league.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/content_serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/eredivisie.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/jupiler_pro.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/la_liga.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/la_liga_portugal.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/ligue1.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/ligue_choosed_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/nav_header_premiere_league.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/nba.xml" value="0.15217391304347827" />
+        <entry key="app/src/main/res/layout/premiere_league.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/shots_standings.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/standing_item.xml" value="0.19375" />
+        <entry key="app/src/main/res/menu/activity_premiere_league_drawer.xml" value="0.178125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
