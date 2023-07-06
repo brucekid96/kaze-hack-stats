@@ -2,7 +2,6 @@ package com.kazehackstats.domain;
 
 import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,30 +11,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kazehackstats.R;
-import com.kazehackstats.data.Match;
-import com.kazehackstats.data.MatchRepository;
-import com.kazehackstats.data.TeamRepository;
 import com.kazehackstats.data.TeamStatLine;
 
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
-public class ShotsStandingsAdapter extends RecyclerView.Adapter<ShotsStandingsAdapter.MyViewHolder> {
-//  private List<Match> mMatches;
-  private List<TeamStatLine>mTeamStatLines;
+public class HomeSavesStandingsAdapter extends RecyclerView.Adapter<HomeSavesStandingsAdapter.MyViewHolder> {
+  //  private List<Match> mMatches;
+  private List<TeamStatLine> mTeamStatLines;
   private Context mContext;
 
-  public ShotsStandingsAdapter(
+  public HomeSavesStandingsAdapter(
       Context mContext) {
     this.mContext = mContext;
   }
@@ -49,15 +37,15 @@ public class ShotsStandingsAdapter extends RecyclerView.Adapter<ShotsStandingsAd
 
   @NonNull
   @Override
-  public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+  public HomeSavesStandingsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.standing_item,parent,false);
-    return new MyViewHolder(v);
+    return new HomeSavesStandingsAdapter.MyViewHolder(v);
   }
 
 
 
   @Override
-  public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+  public void onBindViewHolder(@NonNull HomeSavesStandingsAdapter.MyViewHolder holder, int position) {
 
     TeamStatLine teamStatLine = mTeamStatLines.get(position);
     holder.position.setText(String.valueOf(position + 1));
@@ -103,10 +91,4 @@ public class ShotsStandingsAdapter extends RecyclerView.Adapter<ShotsStandingsAd
 
     }
   }
-  }
-
-
-
-
-
-
+}

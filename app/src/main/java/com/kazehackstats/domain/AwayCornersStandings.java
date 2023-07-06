@@ -1,19 +1,13 @@
 package com.kazehackstats.domain;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.Observer;
@@ -25,27 +19,27 @@ import com.kazehackstats.data.Match;
 import com.kazehackstats.data.MatchRepository;
 import com.kazehackstats.data.TeamStatLine;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class ShotsStandings extends AppCompatActivity {
+public class AwayCornersStandings extends AppCompatActivity {
   private RecyclerView mRecyclerView;
-  private ShotsStandingsAdapter adapter;
+  private AwayCornersStandingsAdapter adapter;
   private List<Match> matchList;
   private Context mContext;
   private CardView mShots;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.shots_standings);
+    setContentView(R.layout.away_corners_standings);
 
-    Toolbar toolbar = findViewById(R.id.toolbar);
+    Toolbar toolbar = findViewById(R.id.toolbar18);
+    toolbar.setTitle("");
     setSupportActionBar(toolbar);
 
     mRecyclerView =findViewById(R.id.recycleview);
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    adapter = new ShotsStandingsAdapter(this);
+    adapter = new AwayCornersStandingsAdapter(this);
     mRecyclerView.setAdapter(adapter);
 
     MatchRepository matchRepository = new MatchRepository(this);
@@ -54,20 +48,14 @@ public class ShotsStandings extends AppCompatActivity {
     Intent intent = getIntent();
     String league = intent.getStringExtra("league");
 
-    Log.d("log league",league);
-
-    matchRepository.getShotStats(league).observe(this, new Observer<List<TeamStatLine>>() {
+    matchRepository.getAwayCornersStats(league).observe(this, new Observer<List<TeamStatLine>>() {
       @Override
       public void onChanged(@Nullable List<TeamStatLine> teamStatLines) {
         adapter.setTeamStatLineList(teamStatLines);
       }
     });
 
-
-
-
   };
-
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,9 +63,6 @@ public class ShotsStandings extends AppCompatActivity {
 
     return true;
   }
-
-
-
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {

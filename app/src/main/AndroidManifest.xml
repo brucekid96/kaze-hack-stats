@@ -29,6 +29,26 @@
         <activity android:name=".domain.JupilerPro" />
         <activity android:name=".domain.LigaPortugal" />
         <activity android:name=".domain.ShotsStandings" />
+        <activity android:name=".domain.HomeShotsOnGoalStandings" />
+        <activity android:name=".domain.HomeShotsStandings" />
+        <activity android:name=".domain.HomeThrowsInStandings" />
+        <activity android:name=".domain.ShotsOnGoalStandings" />
+        <activity android:name=".domain.CornersStandings" />
+        <activity android:name=".domain.HomeCornersStandings" />
+        <activity android:name=".domain.ThrowsInStandings" />
+        <activity android:name=".domain.SavesStandings" />
+        <activity android:name=".domain.HomeSavesStandings" />
+        <activity android:name=".domain.FoulsStandings" />
+        <activity android:name=".domain.HomeFoulsStandings" />
+        <activity android:name=".domain.TacklesStandings" />
+        <activity android:name=".domain.HomeTacklesStandings" />
+        <activity android:name=".domain.AwayShotsOnGoalStandings" />
+        <activity android:name=".domain.AwayShotsStandings" />
+        <activity android:name=".domain.AwayThrowsInStandings" />
+        <activity android:name=".domain.AwayCornersStandings" />
+        <activity android:name=".domain.AwaySavesStandings" />
+        <activity android:name=".domain.AwayTacklesStandings" />
+        <activity android:name=".domain.AwayFoulsStandings" />
         <activity android:name=".domain.NBA" />
     </application>
 

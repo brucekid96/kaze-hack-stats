@@ -19,6 +19,8 @@ public class Match  implements Parcelable {
   @PrimaryKey
   @ColumnInfo(name = "id")
   private String match_id;
+  @ColumnInfo(name = "league")
+  private String league;
   @NonNull
   private String date;
   @ColumnInfo(name = "homeTeam")
@@ -83,7 +85,7 @@ public class Match  implements Parcelable {
   private int tacklesDifference;
 
 
-  public Match(String match_id, String date, String homeTeam,
+  public Match(String match_id, String date, String league,String homeTeam,
                String awayTeam, int homeShotsScore, int awayShotsScore,
                String shotsWinner, int shotsDifference, int homeShotsOnGoalScore,
                int awayShotsOnGoalScore, String shotsOnGoalWinner, int shotsOnGoalDifference,
@@ -94,6 +96,7 @@ public class Match  implements Parcelable {
                String tacklesWinner, int tacklesDifference) {
     this.match_id = match_id;
     this.date = date;
+    this.league = league;
     this.homeTeam = homeTeam;
     this.awayTeam = awayTeam;
     this.homeShotsScore = homeShotsScore;
@@ -142,6 +145,13 @@ public class Match  implements Parcelable {
     this.date = time;
   }
 
+  public String getLeague() {
+    return league;
+  }
+
+  public void setLeague(String league) {
+    this.league = league;
+  }
 
   public String getHomeTeam() {
     return homeTeam;
@@ -401,6 +411,7 @@ public class Match  implements Parcelable {
     return "Match{" +
         "match_id='" + match_id + '\'' +
         ", date='" + date + '\'' +
+        ", league='" + league + '\'' +
         ", homeTeam='" + homeTeam + '\'' +
         ", awayTeam='" + awayTeam + '\'' +
         ", homeShotsScore=" + homeShotsScore +
@@ -437,6 +448,7 @@ public class Match  implements Parcelable {
   public Match(Parcel in) {
     this.match_id = in.readString();
     this.date = in.readString();
+    this.league= in.readString();
     this.homeTeam = in.readString();
     this.awayTeam = in.readString();
     this.homeShotsScore = in.readInt();
@@ -480,6 +492,7 @@ public class Match  implements Parcelable {
 
     dest.writeString(this.match_id);
     dest.writeString(this.date);
+    dest.writeString(this.league);
     dest.writeString(this.homeTeam);
     dest.writeString(this.awayTeam);
     dest.writeInt(this.homeShotsScore);

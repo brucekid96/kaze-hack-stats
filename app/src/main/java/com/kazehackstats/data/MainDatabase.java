@@ -41,4 +41,6 @@ public abstract class MainDatabase extends RoomDatabase {
   }
 
   public abstract MatchDao matchDao();
+  public abstract TeamDao teamDao();
 }
+

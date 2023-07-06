@@ -2,17 +2,23 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a1d9c60a868e96ecefa0662c2e26cde7",
+    "identityHash": "bcce0435d241aa73d36d8a46b1c876ad",
     "entities": [
       {
         "tableName": "match",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `date` TEXT NOT NULL, `homeTeam` TEXT, `awayTeam` TEXT, `homeShotsScore` INTEGER NOT NULL, `awayShotsScore` INTEGER NOT NULL, `shotsWinner` TEXT, `shotsDifference` INTEGER NOT NULL, `homeShotsOnGoalScore` INTEGER NOT NULL, `awayShotsOnGoalScore` INTEGER NOT NULL, `shotsOnGoalWinner` TEXT, `shotsOnGoalDifference` INTEGER NOT NULL, `homeCornersScore` INTEGER NOT NULL, `awayCornersScore` INTEGER NOT NULL, `cornersWinner` TEXT, `cornersDifference` INTEGER NOT NULL, `homeThrowsInScore` INTEGER NOT NULL, `awayThrowsInScore` INTEGER NOT NULL, `throwsInWinner` TEXT, `throwsInDifference` INTEGER NOT NULL, `homeSavesScore` INTEGER NOT NULL, `awaySavesScore` INTEGER NOT NULL, `savesWinner` TEXT, `savesDifference` INTEGER NOT NULL, `homeFoulsScore` INTEGER NOT NULL, `awayFoulsScore` INTEGER NOT NULL, `foulsWinner` TEXT, `foulsDifference` INTEGER NOT NULL, `homeTacklesScore` INTEGER NOT NULL, `awayTacklesScore` INTEGER NOT NULL, `tacklesWinner` TEXT, `tacklesDifference` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `league` TEXT, `date` TEXT NOT NULL, `homeTeam` TEXT, `awayTeam` TEXT, `homeShotsScore` INTEGER NOT NULL, `awayShotsScore` INTEGER NOT NULL, `shotsWinner` TEXT, `shotsDifference` INTEGER NOT NULL, `homeShotsOnGoalScore` INTEGER NOT NULL, `awayShotsOnGoalScore` INTEGER NOT NULL, `shotsOnGoalWinner` TEXT, `shotsOnGoalDifference` INTEGER NOT NULL, `homeCornersScore` INTEGER NOT NULL, `awayCornersScore` INTEGER NOT NULL, `cornersWinner` TEXT, `cornersDifference` INTEGER NOT NULL, `homeThrowsInScore` INTEGER NOT NULL, `awayThrowsInScore` INTEGER NOT NULL, `throwsInWinner` TEXT, `throwsInDifference` INTEGER NOT NULL, `homeSavesScore` INTEGER NOT NULL, `awaySavesScore` INTEGER NOT NULL, `savesWinner` TEXT, `savesDifference` INTEGER NOT NULL, `homeFoulsScore` INTEGER NOT NULL, `awayFoulsScore` INTEGER NOT NULL, `foulsWinner` TEXT, `foulsDifference` INTEGER NOT NULL, `homeTacklesScore` INTEGER NOT NULL, `awayTacklesScore` INTEGER NOT NULL, `tacklesWinner` TEXT, `tacklesDifference` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "match_id",
             "columnName": "id",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "league",
+            "columnName": "league",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "date",
@@ -214,7 +220,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a1d9c60a868e96ecefa0662c2e26cde7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bcce0435d241aa73d36d8a46b1c876ad')"
     ]
   }
 }

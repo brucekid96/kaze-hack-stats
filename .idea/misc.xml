@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_bundesliga.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/ic_sort.xml" value="0.154" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15806159420289856" />
         <entry key="app/src/main/res/layout/app_bar_bundesliga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/app_bar_championship.xml" value="0.15217391304347827" />
@@ -14,6 +16,13 @@
         <entry key="app/src/main/res/layout/app_bar_nba.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/app_bar_premiere_league.xml" value="0.22" />
         <entry key="app/src/main/res/layout/app_bar_serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/away_corners_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_fouls_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_saves_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_shots_on_goal_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_shots_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_tackles_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/away_throws_in_standings.xml" value="0.15904232578024796" />
         <entry key="app/src/main/res/layout/bundesliga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/championship.xml" value="0.15806159420289856" />
         <entry key="app/src/main/res/layout/content_bundesliga.xml" value="0.19375" />
@@ -26,7 +35,16 @@
         <entry key="app/src/main/res/layout/content_nba.xml" value="0.18" />
         <entry key="app/src/main/res/layout/content_premiere_league.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/content_serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/corners_standings.xml" value="0.33" />
         <entry key="app/src/main/res/layout/eredivisie.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/fouls_standings.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/home_corners_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_fouls_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_saves_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_shots_on_goal.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_shots_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_tackles_standings.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/home_throws_in_standings.xml" value="0.15904232578024796" />
         <entry key="app/src/main/res/layout/jupiler_pro.xml" value="0.15806159420289856" />
         <entry key="app/src/main/res/layout/la_liga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/la_liga_portugal.xml" value="0.15806159420289856" />
@@ -35,10 +53,15 @@
         <entry key="app/src/main/res/layout/nav_header_premiere_league.xml" value="0.178125" />
         <entry key="app/src/main/res/layout/nba.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/premiere_league.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/saves_standings.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/serie_a.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/shots_on_goal_standings.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/shots_standings.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/standing_item.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/standing_item.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/tackles_standings.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/throws_in_standings.xml" value="0.19375" />
         <entry key="app/src/main/res/menu/activity_premiere_league_drawer.xml" value="0.178125" />
+        <entry key="app/src/main/res/menu/trier.xml" value="0.19375" />
       </map>
     </option>
   </component>

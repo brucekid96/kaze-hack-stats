@@ -14,10 +14,34 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.kazehackstats.R;
+import com.kazehackstats.data.MatchRepository;
 
 public class PremiereLeague extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
   private CardView mShots;
+  private CardView mHShots;
+  private CardView mShotsOnGoal;
+  private CardView mHShotsOnGoal;
+  private CardView mCorners;
+  private CardView mHCorners;
+  private CardView mThrowsIn;
+  private CardView mHThrowsIn;
+  private CardView mSaves;
+  private CardView mHSaves;
+  private CardView mFouls;
+  private CardView mHFouls;
+  private CardView mTackles;
+  private CardView mHTackles;
+  private CardView mAShots;
+  private CardView mAShotsOnGoal;
+  private CardView mACorners;
+  private CardView mAThrowsIn;
+  private CardView mASaves;
+  private CardView mAFouls;
+  private CardView mATackles;
+
+  private MatchRepository matchRepository;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -29,11 +53,110 @@ public class PremiereLeague extends AppCompatActivity implements NavigationView.
     setSupportActionBar(toolbar);
 
 
-
     mShots = findViewById(R.id.shots_card);
-    mShots.setOnClickListener(view -> startActivity(new Intent(PremiereLeague.this, ShotsStandings.class)));
+    Intent a = new Intent(PremiereLeague.this, ShotsStandings.class);
+    a.putExtra("league","Premiere League");
+    mShots.setOnClickListener(view -> startActivity(a));
+    
 
+    mShotsOnGoal = findViewById(R.id.shots_on_g_card);
+    Intent b = new Intent(PremiereLeague.this, ShotsOnGoalStandings.class);
+    b.putExtra("league","Premiere League");
+    mShotsOnGoal.setOnClickListener(view -> startActivity(new Intent(b)));
 
+    mCorners = findViewById(R.id.corners_card);
+    Intent c = new Intent(PremiereLeague.this, CornersStandings.class);
+    c.putExtra("league","Premiere League");
+    mCorners.setOnClickListener(view -> startActivity(new Intent(c)));
+
+    mThrowsIn = findViewById(R.id.throws_in_card);
+    Intent d = new Intent(PremiereLeague.this, ThrowsInStandings.class);
+    d.putExtra("league","Premiere League");
+    mThrowsIn.setOnClickListener(view -> startActivity(d));
+
+    mSaves = findViewById(R.id.saves_card);
+    Intent e = new Intent(PremiereLeague.this, SavesStandings.class);
+    e.putExtra("league","Premiere League");
+    mSaves.setOnClickListener(view -> startActivity(e));
+
+    mFouls = findViewById(R.id.fouls_card);
+    Intent f = new Intent(PremiereLeague.this, FoulsStandings.class);
+    f.putExtra("league","Premiere League");
+    mFouls.setOnClickListener(view -> startActivity(f));
+
+    mTackles = findViewById(R.id.tackles_card);
+    Intent g = new Intent(PremiereLeague.this, TacklesStandings.class);
+    g.putExtra("league","Premiere League");
+    mTackles.setOnClickListener(view -> startActivity(g));
+
+    mHShots = findViewById(R.id.home_shots_card);
+    Intent h = new Intent(PremiereLeague.this, HomeShotsStandings.class);
+    h.putExtra("league","Premiere League");
+    mHShots.setOnClickListener(view -> startActivity(h));
+
+    mHShotsOnGoal= findViewById(R.id.home_shots_on_g_card);
+    Intent i = new Intent(PremiereLeague.this, HomeShotsOnGoalStandings.class);
+    i.putExtra("league","Premiere League");
+    mHShotsOnGoal.setOnClickListener(view -> startActivity(i));
+    mHThrowsIn= findViewById(R.id.home_throws_in_card);
+    Intent j = new Intent(PremiereLeague.this, HomeThrowsInStandings.class);
+    j.putExtra("league","Premiere League");
+    mHThrowsIn.setOnClickListener(view -> startActivity(j));
+
+    mHCorners= findViewById(R.id.home_corners_card);
+    Intent k = new Intent(PremiereLeague.this, HomeCornersStandings.class);
+    k.putExtra("league","Premiere League");
+    mHCorners.setOnClickListener(view -> startActivity(k));
+
+    mHSaves= findViewById(R.id.home_saves_card);
+    Intent l = new Intent(PremiereLeague.this, HomeSavesStandings.class);
+    l.putExtra("league","Premiere League");
+    mHSaves.setOnClickListener(view -> startActivity(l));
+
+    mHFouls= findViewById(R.id.home_fouls_card);
+    Intent m = new Intent(PremiereLeague.this, HomeFoulsStandings.class);
+    m.putExtra("league","Premiere League");
+    mHFouls.setOnClickListener(view -> startActivity(m));
+
+    mHTackles= findViewById(R.id.home_tackles_card);
+    Intent n = new Intent(PremiereLeague.this, HomeTacklesStandings.class);
+    n.putExtra("league","Premiere League");
+    mHTackles.setOnClickListener(view -> startActivity(n));
+
+    mAShots= findViewById(R.id.away_shots_card);
+    Intent o = new Intent(PremiereLeague.this, AwayShotsStandings.class);
+    o.putExtra("league","Premiere League");
+    mAShots.setOnClickListener(view -> startActivity(o));
+
+    mAShotsOnGoal= findViewById(R.id.away_shots_on_g_card);
+    Intent p = new Intent(PremiereLeague.this, AwayShotsOnGoalStandings.class);
+    p.putExtra("league","Premiere League");
+    mAShotsOnGoal.setOnClickListener(view -> startActivity(p));
+
+    mACorners= findViewById(R.id.Away_corners_card);
+    Intent q = new Intent(PremiereLeague.this, AwayCornersStandings.class);
+    q.putExtra("league","Premiere League");
+    mACorners.setOnClickListener(view -> startActivity(q));
+
+    mAThrowsIn= findViewById(R.id.away_throws_in_card);
+    Intent r = new Intent(PremiereLeague.this, AwayThrowsInStandings.class);
+    r.putExtra("league","Premiere League");
+    mAThrowsIn.setOnClickListener(view -> startActivity(r));
+
+    mASaves= findViewById(R.id.away_saves_card);
+    Intent s = new Intent(PremiereLeague.this, AwaySavesStandings.class);
+    s.putExtra("league","Premiere League");
+    mASaves.setOnClickListener(view -> startActivity(s));
+
+    mAFouls= findViewById(R.id.away_fouls_card);
+    Intent t = new Intent(PremiereLeague.this, AwayFoulsStandings.class);
+    t.putExtra("league","Premiere League");
+    mAFouls.setOnClickListener(view -> startActivity(t));
+
+    mATackles= findViewById(R.id.away_tackles_card);
+    Intent u = new Intent(PremiereLeague.this, AwayTacklesStandings.class);
+    u.putExtra("league","Premiere League");
+    mATackles.setOnClickListener(view -> startActivity(u));
 
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
