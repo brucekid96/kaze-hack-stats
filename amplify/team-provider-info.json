@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kazehackstatsmain-dev-165300-authRole",
+      "UnauthRoleArn": "arn:aws:iam::766274454769:role/amplify-kazehackstatsmain-dev-165300-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::766274454769:role/amplify-kazehackstatsmain-dev-165300-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-kazehackstatsmain-dev-165300-deployment",
+      "UnauthRoleName": "amplify-kazehackstatsmain-dev-165300-unauthRole",
+      "StackName": "amplify-kazehackstatsmain-dev-165300",
+      "StackId": "arn:aws:cloudformation:eu-west-1:766274454769:stack/amplify-kazehackstatsmain-dev-165300/c8e41360-1d9f-11ee-bf32-0e672ddde5d3",
+      "AmplifyAppId": "d2slzumzk40l94"
+    },
+    "categories": {
+      "api": {
+        "kazehackstatsmain": {}
+      }
+    }
+  }
+}

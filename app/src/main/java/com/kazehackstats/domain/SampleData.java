@@ -1,5 +1,6 @@
 package com.kazehackstats.domain;
 
+import com.kazehackstats.data.BasketballMatch;
 import com.kazehackstats.data.Match;
 
 import java.util.ArrayList;
@@ -129,4 +130,32 @@ public class SampleData {
 
 return matchList;
 }
+
+  public static List<BasketballMatch> getSampleBasketballMatches() {
+
+
+    List<BasketballMatch> basketballMatchList = new ArrayList<>(); // Create an empty list
+
+    basketballMatchList.add(new BasketballMatch("895", "05.06","NBA", "Chicago Bulls", "Miami",23 , 18,
+        "Chicago Bulls", 5, 7, 11,
+        "Miami", 4, 37, 43, "Miami",
+        6, 24, 17, "Chicago Bulls", 7));
+
+    basketballMatchList.add(new BasketballMatch("71295", "05.06","EuroLeague", "Barcelona", "Valencia",23 , 18,
+        "Barcelona", 5, 7, 11,
+        "Valencia", 4, 37, 43, "Valencia",
+        6, 24, 17, "Barcelona", 7));
+
+    basketballMatchList.add(new BasketballMatch("811595", "05.06","NBA", "Chicago Bulls", "Memphis Grizlies",13 , 19,
+        "Memphis Grizlies", 6, 15, 11,
+        "Chicago Bulls", 4, 38, 33, "Chicago Bulls",
+        5, 14, 23, "Memphis Grizlies", 9));
+
+    basketballMatchList.add(new BasketballMatch("895", "05.06","NBA", "Denver Nuggets", "Los Angeles Lakers",23 , 28,
+        "Los Angeles Lakers", 5, 9, 11,
+        "Los Angeles Lakers", 2, 47, 41, "Denver Nuggets",
+        6, 24, 17, "Denver Nuggets", 7));
+
+    return basketballMatchList;
+  }
 }

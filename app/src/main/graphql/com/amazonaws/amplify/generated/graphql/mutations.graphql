@@ -1,0 +1,127 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateMatch(
+  $input: CreateMatchInput!
+  $condition: ModelMatchConditionInput
+) {
+  createMatch(input: $input, condition: $condition) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeShotsScore
+    awayShotsScore
+    shotsWinner
+    shotsDifference
+    homeShotsOnGoalScore
+    awayShotsOnGoalScore
+    shotsOnGoalWinner
+    shotsOnGoalDifference
+    homeCornersScore
+    awayCornersScore
+    cornersWinner
+    cornersDifference
+    homeThrowsInScore
+    awayThrowsInScore
+    throwsInWinner
+    throwsInDifference
+    homeSavesScore
+    awaySavesScore
+    savesWinner
+    savesDifference
+    homeFoulsScore
+    awayFoulsScore
+    foulsWinner
+    foulsDifference
+    homeTacklesScore
+    awayTacklesScore
+    tacklesWinner
+    tacklesDifference
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateMatch(
+  $input: UpdateMatchInput!
+  $condition: ModelMatchConditionInput
+) {
+  updateMatch(input: $input, condition: $condition) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeShotsScore
+    awayShotsScore
+    shotsWinner
+    shotsDifference
+    homeShotsOnGoalScore
+    awayShotsOnGoalScore
+    shotsOnGoalWinner
+    shotsOnGoalDifference
+    homeCornersScore
+    awayCornersScore
+    cornersWinner
+    cornersDifference
+    homeThrowsInScore
+    awayThrowsInScore
+    throwsInWinner
+    throwsInDifference
+    homeSavesScore
+    awaySavesScore
+    savesWinner
+    savesDifference
+    homeFoulsScore
+    awayFoulsScore
+    foulsWinner
+    foulsDifference
+    homeTacklesScore
+    awayTacklesScore
+    tacklesWinner
+    tacklesDifference
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteMatch(
+  $input: DeleteMatchInput!
+  $condition: ModelMatchConditionInput
+) {
+  deleteMatch(input: $input, condition: $condition) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeShotsScore
+    awayShotsScore
+    shotsWinner
+    shotsDifference
+    homeShotsOnGoalScore
+    awayShotsOnGoalScore
+    shotsOnGoalWinner
+    shotsOnGoalDifference
+    homeCornersScore
+    awayCornersScore
+    cornersWinner
+    cornersDifference
+    homeThrowsInScore
+    awayThrowsInScore
+    throwsInWinner
+    throwsInDifference
+    homeSavesScore
+    awaySavesScore
+    savesWinner
+    savesDifference
+    homeFoulsScore
+    awayFoulsScore
+    foulsWinner
+    foulsDifference
+    homeTacklesScore
+    awayTacklesScore
+    tacklesWinner
+    tacklesDifference
+    createdAt
+    updatedAt
+  }
+}

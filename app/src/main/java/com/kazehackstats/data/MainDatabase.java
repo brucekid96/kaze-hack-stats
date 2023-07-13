@@ -10,7 +10,7 @@ import androidx.room.TypeConverters;
 import java.io.File;
 
 
-@Database(entities = {Match.class}, version = 1)
+@Database(entities = {Match.class,BasketballMatch.class}, version = 1)
 public abstract class MainDatabase extends RoomDatabase {
 
   private static final String TAG = MainDatabase.class.getSimpleName();
@@ -41,6 +41,7 @@ public abstract class MainDatabase extends RoomDatabase {
   }
 
   public abstract MatchDao matchDao();
+  public abstract BasketballMatchDao basketballMatchDao();
   public abstract TeamDao teamDao();
 }
 

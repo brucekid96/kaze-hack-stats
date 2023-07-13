@@ -3,6 +3,7 @@
     package="com.kazehackstats">
 
     <application
+        android:name=".KazeHackStatsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -50,6 +51,18 @@
         <activity android:name=".domain.AwayTacklesStandings" />
         <activity android:name=".domain.AwayFoulsStandings" />
         <activity android:name=".domain.NBA" />
+        <activity android:name=".domain.TwoPtsStandings" />
+        <activity android:name=".domain.HomeTwoPtsStandings" />
+        <activity android:name=".domain.AwayTwoPtsStandings" />
+        <activity android:name=".domain.ThreePtsStandings" />
+        <activity android:name=".domain.HomeThreePtsStandings" />
+        <activity android:name=".domain.AwayThreePtsStandings" />
+        <activity android:name=".domain.ReboundsStandings" />
+        <activity android:name=".domain.HomeReboundsStandings" />
+        <activity android:name=".domain.AwayReboundsStandings" />
+        <activity android:name=".domain.AssistsStandings" />
+        <activity android:name=".domain.HomeAssistsStandings" />
+        <activity android:name=".domain.AwayAssistsStandings" />
     </application>
 
 </manifest>

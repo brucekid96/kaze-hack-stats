@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar19"
+        android:id="@+id/toolbarI"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:background="@color/teal_700"
@@ -18,14 +18,14 @@
         app:menu="@menu/trier" />
 
     <TextView
-        android:id="@+id/away_throws_in_toolbar_standings"
+        android:id="@+id/away_two_pts_toolbar_standings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Away Throws In"
+        android:text="Away Two Pts"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:fontFamily="@font/montserrat_bold"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar19"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
         app:cardBackgroundColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar19">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarI">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

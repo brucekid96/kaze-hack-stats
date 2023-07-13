@@ -1,0 +1,35 @@
+type Match @model @auth(rules: [{allow: public,operations:[create,delete,update,read]}]){
+  id: ID!
+  league: String
+  date: String
+  homeTeam: String
+  awayTeam: String
+  homeShotsScore: Int
+  awayShotsScore: Int
+  shotsWinner: String
+  shotsDifference: Int
+  homeShotsOnGoalScore: Int
+  awayShotsOnGoalScore: Int
+  shotsOnGoalWinner: String
+  shotsOnGoalDifference: Int
+  homeCornersScore: Int
+  awayCornersScore: Int
+  cornersWinner: String
+  cornersDifference: Int
+  homeThrowsInScore: Int
+  awayThrowsInScore: Int
+  throwsInWinner: String
+  throwsInDifference: Int
+  homeSavesScore: Int
+  awaySavesScore: Int
+  savesWinner: String
+  savesDifference: Int
+  homeFoulsScore: Int
+  awayFoulsScore: Int
+  foulsWinner: String
+  foulsDifference: Int
+  homeTacklesScore: Int
+  awayTacklesScore: Int
+  tacklesWinner : String
+  tacklesDifference : Int
+}

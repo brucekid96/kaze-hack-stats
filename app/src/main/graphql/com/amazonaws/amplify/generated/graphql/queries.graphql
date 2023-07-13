@@ -1,0 +1,86 @@
+# this is an auto generated file. This will be overwritten
+query GetMatch($id: ID!) {
+  getMatch(id: $id) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeShotsScore
+    awayShotsScore
+    shotsWinner
+    shotsDifference
+    homeShotsOnGoalScore
+    awayShotsOnGoalScore
+    shotsOnGoalWinner
+    shotsOnGoalDifference
+    homeCornersScore
+    awayCornersScore
+    cornersWinner
+    cornersDifference
+    homeThrowsInScore
+    awayThrowsInScore
+    throwsInWinner
+    throwsInDifference
+    homeSavesScore
+    awaySavesScore
+    savesWinner
+    savesDifference
+    homeFoulsScore
+    awayFoulsScore
+    foulsWinner
+    foulsDifference
+    homeTacklesScore
+    awayTacklesScore
+    tacklesWinner
+    tacklesDifference
+    createdAt
+    updatedAt
+  }
+}
+query ListMatches(
+  $filter: ModelMatchFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMatches(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      league
+      date
+      homeTeam
+      awayTeam
+      homeShotsScore
+      awayShotsScore
+      shotsWinner
+      shotsDifference
+      homeShotsOnGoalScore
+      awayShotsOnGoalScore
+      shotsOnGoalWinner
+      shotsOnGoalDifference
+      homeCornersScore
+      awayCornersScore
+      cornersWinner
+      cornersDifference
+      homeThrowsInScore
+      awayThrowsInScore
+      throwsInWinner
+      throwsInDifference
+      homeSavesScore
+      awaySavesScore
+      savesWinner
+      savesDifference
+      homeFoulsScore
+      awayFoulsScore
+      foulsWinner
+      foulsDifference
+      homeTacklesScore
+      awayTacklesScore
+      tacklesWinner
+      tacklesDifference
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
