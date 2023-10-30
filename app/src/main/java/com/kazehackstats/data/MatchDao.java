@@ -19,11 +19,18 @@ import io.reactivex.Observable;
 public interface MatchDao {
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  void bulkInsert(List<Match> matches);
+  Completable bulkInsert(List<Match> matches);
+
+  @Insert
+  Completable insert(Match match);
+  @Delete
+  Completable delete(Match match);
+  @Update
+  Completable update(Match match);
 
 
   @Query("SELECT * FROM `match`")
-  LiveData<List<Match>> getAllMatches();
+  Observable<List<Match>> getAllMatches();
 
   @Query("SELECT DISTINCT awayTeam AS team FROM `match` UNION SELECT DISTINCT homeTeam AS team FROM `match`")
   LiveData<List<String>> getTeamsThatPlayedAtLeastOneMatch();
@@ -52,7 +59,7 @@ public interface MatchDao {
       "all_differences as (select * from home_differences union all select * from away_differences),\n" +
       "avg_difference as (select team, sum(shots_difference) / sum(matches_played) as avg_difference from all_differences group by team),\n" +
       "team_shots_stats as (select teams.team, matches_played, shots_wins as stat_wins, avg_shots as stat_average_count, avg_difference as stat_average_difference from teams, matches_played, shots_wins, avg_shots, avg_difference on teams.team = matches_played.team and teams.team = shots_wins.team and  teams.team = avg_shots.team and teams.team = avg_difference.team) \n" +
-      "select * from team_shots_stats order by stat_wins desc ")
+      "select * from team_shots_stats order by stat_wins desc  ")
   LiveData<List<TeamStatLine>> getShotStats(String league);
 
   @Query("with teams as (select homeTeam as team from `match` where league=:league union select awayTeam as team from `match` where league=:league ),\n" +
@@ -152,6 +159,8 @@ public interface MatchDao {
       "team_tackles_stats as (select teams.team, matches_played, tackles_wins as stat_wins, avg_tackles as stat_average_count, avg_difference as stat_average_difference from teams, matches_played, tackles_wins, avg_tackles, avg_difference on teams.team = matches_played.team and teams.team = tackles_wins.team and  teams.team = avg_tackles.team and teams.team = avg_difference.team) \n" +
       "select * from team_tackles_stats order by stat_wins desc ")
   LiveData<List<TeamStatLine>> getTacklesStats(String league);
+
+
 
 
   @Query("with teams as (select distinct homeTeam as team from `match` where league=:league),\n" +

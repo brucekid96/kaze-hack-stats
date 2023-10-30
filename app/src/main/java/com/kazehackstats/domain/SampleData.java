@@ -136,22 +136,22 @@ return matchList;
 
     List<BasketballMatch> basketballMatchList = new ArrayList<>(); // Create an empty list
 
-    basketballMatchList.add(new BasketballMatch("895", "05.06","NBA", "Chicago Bulls", "Miami",23 , 18,
+    basketballMatchList.add(new BasketballMatch("895", "NBA","05.06", "Chicago Bulls", "Miami",23 , 18,
         "Chicago Bulls", 5, 7, 11,
         "Miami", 4, 37, 43, "Miami",
         6, 24, 17, "Chicago Bulls", 7));
 
-    basketballMatchList.add(new BasketballMatch("71295", "05.06","EuroLeague", "Barcelona", "Valencia",23 , 18,
+    basketballMatchList.add(new BasketballMatch("71295", "EuroLeague","05.06", "Barcelona", "Valencia",23 , 18,
         "Barcelona", 5, 7, 11,
         "Valencia", 4, 37, 43, "Valencia",
         6, 24, 17, "Barcelona", 7));
 
-    basketballMatchList.add(new BasketballMatch("811595", "05.06","NBA", "Chicago Bulls", "Memphis Grizlies",13 , 19,
+    basketballMatchList.add(new BasketballMatch("811595", "NBA","05.06", "Chicago Bulls", "Memphis Grizlies",13 , 19,
         "Memphis Grizlies", 6, 15, 11,
         "Chicago Bulls", 4, 38, 33, "Chicago Bulls",
         5, 14, 23, "Memphis Grizlies", 9));
 
-    basketballMatchList.add(new BasketballMatch("895", "05.06","NBA", "Denver Nuggets", "Los Angeles Lakers",23 , 28,
+    basketballMatchList.add(new BasketballMatch("89511", "NBA","05.06", "Denver Nuggets", "Los Angeles Lakers",23 , 28,
         "Los Angeles Lakers", 5, 9, 11,
         "Los Angeles Lakers", 2, 47, 41, "Denver Nuggets",
         6, 24, 17, "Denver Nuggets", 7));

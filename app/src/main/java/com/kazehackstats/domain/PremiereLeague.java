@@ -2,6 +2,7 @@ package com.kazehackstats.domain;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -14,10 +15,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.kazehackstats.R;
+import com.kazehackstats.data.BasketballMatchRepository;
 import com.kazehackstats.data.MatchRepository;
 
-public class PremiereLeague extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import io.reactivex.Completable;
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
+public class PremiereLeague extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+  private static final String DBG_TAG = PremiereLeague.class.getSimpleName();
   private CardView mShots;
   private CardView mHShots;
   private CardView mShotsOnGoal;
@@ -39,6 +47,7 @@ public class PremiereLeague extends AppCompatActivity implements NavigationView.
   private CardView mASaves;
   private CardView mAFouls;
   private CardView mATackles;
+  private CompositeDisposable mDisposable = new CompositeDisposable();
 
   private MatchRepository matchRepository;
 
@@ -167,8 +176,23 @@ public class PremiereLeague extends AppCompatActivity implements NavigationView.
         findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
 
+//    mDisposable.add(
+//        Completable.concatArray(
+//            syncMatches())
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(() -> {
+//            }, io -> {
+//              Log.d(DBG_TAG, "Synchronization failed: " + io.toString() + ", cause = " + io.getCause());
+//            }));
+
 
   }
+
+//  private Completable syncMatches() {
+//    return Single.fromCallable(() -> new MatchRepository(this))
+//        .flatMapCompletable(MatchRepository::syncMatchs);
+//  }
 
   @Override
   public void onBackPressed() {

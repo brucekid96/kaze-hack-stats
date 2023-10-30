@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.amazonaws.appsync'
 
 
 }
@@ -7,6 +8,8 @@ plugins {
 android {
     compileSdkVersion 33
     buildToolsVersion "29.0.3"
+
+
 
     defaultConfig {
         applicationId "com.curuza"
@@ -76,14 +79,18 @@ android {
 }
 
 dependencies {
+    implementation 'com.amazonaws:aws-android-sdk-appsync:3.1.4'
 
     implementation 'androidx.room:room-runtime:2.4.2'
     implementation 'androidx.room:room-rxjava2:2.4.2'
     annotationProcessor 'androidx.room:room-compiler:2.4.2'
 
+    implementation 'com.squareup.okhttp3:okhttp:3.0.1'
+
+
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.github.clans:fab:1.6.4'
     testImplementation 'junit:junit:4.+'
@@ -104,6 +111,8 @@ dependencies {
 
     // Amplify core dependency
     implementation 'com.amplifyframework:core:2.8.7'
+    implementation 'com.amplifyframework:aws-api:2.8.7'
+    implementation 'com.amplifyframework:aws-storage-s3:2.8.7'
     implementation 'com.amplifyframework:aws-datastore:2.8.7'
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'

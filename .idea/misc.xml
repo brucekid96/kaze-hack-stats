@@ -5,7 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_bundesliga.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/ic_sort.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/add_basketball_game_template.xml" value="0.15904232578024796" />
+        <entry key="app/src/main/res/layout/add_foot_game_template.xml" value="0.20239390642002175" />
         <entry key="app/src/main/res/layout/app_bar_bundesliga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/app_bar_championship.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/app_bar_eredivisie.xml" value="0.15217391304347827" />
@@ -30,6 +33,7 @@
         <entry key="app/src/main/res/layout/away_two_pts_standings.xml" value="0.15904232578024796" />
         <entry key="app/src/main/res/layout/bundesliga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/championship.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/complete.xml" value="0.15904232578024796" />
         <entry key="app/src/main/res/layout/content_bundesliga.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/content_championship.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/content_eredivisie.xml" value="0.15217391304347827" />

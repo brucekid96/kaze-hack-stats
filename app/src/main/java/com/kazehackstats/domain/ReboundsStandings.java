@@ -21,15 +21,23 @@ import com.kazehackstats.data.Match;
 import com.kazehackstats.data.MatchRepository;
 import com.kazehackstats.data.TeamStatLine;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class ReboundsStandings extends AppCompatActivity {
 
   private RecyclerView mRecyclerView;
-  private SavesStandingsAdapter adapter;
+  private ReboundsStandingsAdapter adapter;
   private List<BasketballMatch> basketballMatchList;
   private Context mContext;
   private CardView mShots;
+  private BasketballMatchRepository basketballMatchRepository;
+  private CompositeDisposable mDisposable = new CompositeDisposable();
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -38,16 +46,23 @@ public class ReboundsStandings extends AppCompatActivity {
     Toolbar toolbar = findViewById(R.id.toolbarC);
     toolbar.setTitle("");
     setSupportActionBar(toolbar);
+    basketballMatchRepository = new BasketballMatchRepository(this);
 
     mRecyclerView =findViewById(R.id.recycleview);
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    adapter = new SavesStandingsAdapter(this);
+    adapter = new ReboundsStandingsAdapter(getListMatch(),this);
     mRecyclerView.setAdapter(adapter);
 
-    BasketballMatchRepository basketballMatchRepository = new BasketballMatchRepository(this);
-    List<BasketballMatch> sampleMatches = SampleData.getSampleBasketballMatches();
-    basketballMatchRepository.insertAll(sampleMatches);
+    mDisposable.add(
+        basketballMatchRepository.getAllMatches()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(this::loadMatchs));
+
+
+    basketballMatchRepository = new BasketballMatchRepository(this);
+    basketballMatchRepository.insertAll(basketballMatchList);
 
     Intent intent = getIntent();
     String league = intent.getStringExtra("league");
@@ -64,7 +79,18 @@ public class ReboundsStandings extends AppCompatActivity {
 
   };
 
+  public void loadMatchs(List<BasketballMatch> basketballMatchs) {
+    basketballMatchList = basketballMatchs;
+    adapter.setData(basketballMatchs);
+  }
 
+  private List<BasketballMatch> getListMatch() {
+    List<BasketballMatch> list = new ArrayList<>();
+    Date date = new Date();
+
+
+    return list;
+  }
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     getMenuInflater().inflate(R.menu.trier, menu);

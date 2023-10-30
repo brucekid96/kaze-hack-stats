@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity(tableName = "match")
 public class Match  implements Parcelable {
-  public static final String Shots_EXTRA = "shots_code";
+  public static final String Match_EXTRA = "match_code";
 
   @NonNull
   @PrimaryKey
@@ -85,7 +85,7 @@ public class Match  implements Parcelable {
   private int tacklesDifference;
 
 
-  public Match(String match_id, String date, String league,String homeTeam,
+  public Match(@NonNull String match_id,String league,@NonNull String date,String homeTeam,
                String awayTeam, int homeShotsScore, int awayShotsScore,
                String shotsWinner, int shotsDifference, int homeShotsOnGoalScore,
                int awayShotsOnGoalScore, String shotsOnGoalWinner, int shotsOnGoalDifference,
@@ -95,6 +95,7 @@ public class Match  implements Parcelable {
                int awayFoulsScore, String foulsWinner, int foulsDifference, int homeTacklesScore, int awayTacklesScore,
                String tacklesWinner, int tacklesDifference) {
     this.match_id = match_id;
+    this.league = league;
     this.date = date;
     this.league = league;
     this.homeTeam = homeTeam;

@@ -33,3 +33,27 @@ type Match @model @auth(rules: [{allow: public,operations:[create,delete,update,
   tacklesWinner : String
   tacklesDifference : Int
 }
+
+type BasketballMatch @model @auth(rules: [{allow: public,operations:[create,delete,update,read]}]){
+  id: ID!
+  league: String
+  date: String
+  homeTeam: String
+  awayTeam: String
+  homeTwoPtsScore: Int
+  awayTwoPtsScore: Int
+  twoPtsWinner: String
+  twoPtsDifference: Int
+  homeThreePtsScore: Int
+  awayThreePtsScore: Int
+  threePtsWinner: String
+  threePtsDifference: Int
+  homeReboundsScore: Int
+  awayReboundsScore: Int
+  reboundsWinner: String
+  reboundsDifference: Int
+  homeAssistsScore: Int
+  awayAssistsScore: Int
+  assistsWinner: String
+  assistsDifference: Int
+}

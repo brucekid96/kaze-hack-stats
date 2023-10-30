@@ -19,7 +19,13 @@ import com.kazehackstats.data.Match;
 import com.kazehackstats.data.MatchRepository;
 import com.kazehackstats.data.TeamStatLine;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class AwayThrowsInStandings extends AppCompatActivity {
   private RecyclerView mRecyclerView;
@@ -27,6 +33,8 @@ public class AwayThrowsInStandings extends AppCompatActivity {
   private List<Match> matchList;
   private Context mContext;
   private CardView mShots;
+  private MatchRepository matchRepository;
+  private CompositeDisposable mDisposable = new CompositeDisposable();
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -35,16 +43,21 @@ public class AwayThrowsInStandings extends AppCompatActivity {
     Toolbar toolbar = findViewById(R.id.toolbar19);
     toolbar.setTitle("");
     setSupportActionBar(toolbar);
+    matchRepository = new MatchRepository(this);
 
     mRecyclerView =findViewById(R.id.recycleview);
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    adapter = new AwayThrowsInStandingsAdapter(this);
+    adapter = new AwayThrowsInStandingsAdapter(getListMatch(),this);
     mRecyclerView.setAdapter(adapter);
+    mDisposable.add(
+        matchRepository.getAllMatches()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(this::loadMatchs));
 
-    MatchRepository matchRepository = new MatchRepository(this);
-    List<Match> sampleMatches = SampleData.getSampleMatches();
-    matchRepository.insertAll(sampleMatches);
+    matchRepository = new MatchRepository(this);
+    matchRepository.insertAll(matchList);
     Intent intent = getIntent();
     String league = intent.getStringExtra("league");
 
@@ -56,7 +69,19 @@ public class AwayThrowsInStandings extends AppCompatActivity {
     });
 
   };
+  public void loadMatchs(List<Match> matchs) {
+    matchList = matchs;
+    adapter.setData(matchs);
+  }
 
+
+  private List<Match> getListMatch() {
+    List<Match> list = new ArrayList<>();
+    Date date = new Date();
+
+
+    return list;
+  }
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     getMenuInflater().inflate(R.menu.trier, menu);

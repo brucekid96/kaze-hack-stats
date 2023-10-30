@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "bcce0435d241aa73d36d8a46b1c876ad",
+    "identityHash": "0316ec29efc90be1c75d3347517e68d1",
     "entities": [
       {
         "tableName": "match",
@@ -215,12 +215,152 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "basketball_match",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`basketball_id` TEXT NOT NULL, `league` TEXT, `date` TEXT NOT NULL, `homeTeam` TEXT, `awayTeam` TEXT, `homeTwoPtsScore` INTEGER NOT NULL, `awayTwoPtsScore` INTEGER NOT NULL, `TwoPtsWinner` TEXT, `twoPtsDifference` INTEGER NOT NULL, `homeThreePtsScore` INTEGER NOT NULL, `awayThreePtsScore` INTEGER NOT NULL, `ThreePtsWinner` TEXT, `threePtsDifference` INTEGER NOT NULL, `homeReboundsScore` INTEGER NOT NULL, `awayReboundsScore` INTEGER NOT NULL, `reboundsWinner` TEXT, `reboundsDifference` INTEGER NOT NULL, `homeAssistsScore` INTEGER NOT NULL, `awayAssistsScore` INTEGER NOT NULL, `assistsWinner` TEXT, `assistsDifference` INTEGER NOT NULL, PRIMARY KEY(`basketball_id`))",
+        "fields": [
+          {
+            "fieldPath": "BasketballMatch_id",
+            "columnName": "basketball_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "league",
+            "columnName": "league",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeTeam",
+            "columnName": "homeTeam",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "awayTeam",
+            "columnName": "awayTeam",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "homeTwoPtsScore",
+            "columnName": "homeTwoPtsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "awayTwoPtsScore",
+            "columnName": "awayTwoPtsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "twoPtsWinner",
+            "columnName": "TwoPtsWinner",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "twoPtsDifference",
+            "columnName": "twoPtsDifference",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeThreePtsScore",
+            "columnName": "homeThreePtsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "awayThreePtsScore",
+            "columnName": "awayThreePtsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "threePtsWinner",
+            "columnName": "ThreePtsWinner",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "threePtsDifference",
+            "columnName": "threePtsDifference",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeReboundsScore",
+            "columnName": "homeReboundsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "awayReboundsScore",
+            "columnName": "awayReboundsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reboundsWinner",
+            "columnName": "reboundsWinner",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reboundsDifference",
+            "columnName": "reboundsDifference",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "homeAssistsScore",
+            "columnName": "homeAssistsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "awayAssistsScore",
+            "columnName": "awayAssistsScore",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "assistsWinner",
+            "columnName": "assistsWinner",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "assistsDifference",
+            "columnName": "assistsDifference",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "basketball_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bcce0435d241aa73d36d8a46b1c876ad')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0316ec29efc90be1c75d3347517e68d1')"
     ]
   }
 }

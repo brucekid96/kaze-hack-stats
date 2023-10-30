@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kazehackstats.R;
+import com.kazehackstats.data.Match;
 import com.kazehackstats.data.TeamStatLine;
 
 import java.util.List;
@@ -21,10 +22,12 @@ import java.util.List;
 public class AwaySavesStandingsAdapter extends RecyclerView.Adapter<AwaySavesStandingsAdapter.MyViewHolder> {
   //  private List<Match> mMatches;
   private List<TeamStatLine> mTeamStatLines;
+  private List<Match> mMatchs;
   private Context mContext;
 
-  public AwaySavesStandingsAdapter(
+  public AwaySavesStandingsAdapter(List<Match> mMatchs,
       Context mContext) {
+    this.mMatchs = mMatchs;
     this.mContext = mContext;
   }
 
@@ -34,7 +37,10 @@ public class AwaySavesStandingsAdapter extends RecyclerView.Adapter<AwaySavesSta
     Log.d(TAG, "mTeamStatLines List " +mTeamStatLines);
   }
 
-
+  public void setData(List<Match>list) {
+    this.mMatchs=list;
+    notifyDataSetChanged();
+  }
   @NonNull
   @Override
   public AwaySavesStandingsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

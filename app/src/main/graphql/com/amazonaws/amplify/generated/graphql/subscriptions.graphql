@@ -116,3 +116,90 @@ subscription OnDeleteMatch($filter: ModelSubscriptionMatchFilterInput) {
     updatedAt
   }
 }
+subscription OnCreateBasketballMatch(
+  $filter: ModelSubscriptionBasketballMatchFilterInput
+) {
+  onCreateBasketballMatch(filter: $filter) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeTwoPtsScore
+    awayTwoPtsScore
+    twoPtsWinner
+    twoPtsDifference
+    homeThreePtsScore
+    awayThreePtsScore
+    threePtsWinner
+    threePtsDifference
+    homeReboundsScore
+    awayReboundsScore
+    reboundsWinner
+    reboundsDifference
+    homeAssistsScore
+    awayAssistsScore
+    assistsWinner
+    assistsDifference
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateBasketballMatch(
+  $filter: ModelSubscriptionBasketballMatchFilterInput
+) {
+  onUpdateBasketballMatch(filter: $filter) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeTwoPtsScore
+    awayTwoPtsScore
+    twoPtsWinner
+    twoPtsDifference
+    homeThreePtsScore
+    awayThreePtsScore
+    threePtsWinner
+    threePtsDifference
+    homeReboundsScore
+    awayReboundsScore
+    reboundsWinner
+    reboundsDifference
+    homeAssistsScore
+    awayAssistsScore
+    assistsWinner
+    assistsDifference
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteBasketballMatch(
+  $filter: ModelSubscriptionBasketballMatchFilterInput
+) {
+  onDeleteBasketballMatch(filter: $filter) {
+    id
+    league
+    date
+    homeTeam
+    awayTeam
+    homeTwoPtsScore
+    awayTwoPtsScore
+    twoPtsWinner
+    twoPtsDifference
+    homeThreePtsScore
+    awayThreePtsScore
+    threePtsWinner
+    threePtsDifference
+    homeReboundsScore
+    awayReboundsScore
+    reboundsWinner
+    reboundsDifference
+    homeAssistsScore
+    awayAssistsScore
+    assistsWinner
+    assistsDifference
+    createdAt
+    updatedAt
+  }
+}

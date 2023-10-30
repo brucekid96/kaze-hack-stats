@@ -1,5 +1,6 @@
 package com.kazehackstats.data;
 
+import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
@@ -8,11 +9,13 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "basketball_match")
-public class BasketballMatch  {
+public class BasketballMatch implements Parcelable {
+  public static final String BasketballMatch_EXTRA = "basketballmatch_code";
+
   @NonNull
   @PrimaryKey
   @ColumnInfo(name = "basketball_id")
-  private String BasketballMatch_id;
+  private String basketballMatch_id;
   @ColumnInfo(name = "league")
   private String league;
   @NonNull
@@ -26,70 +29,66 @@ public class BasketballMatch  {
   @ColumnInfo(name = "awayTwoPtsScore")
   private int awayTwoPtsScore;
   @ColumnInfo(name = "TwoPtsWinner")
-  private String TwoPtsWinner;
-  @ColumnInfo(name = "TwoPtsDifference")
-  private int TwoPtsDifference;
+  private String twoPtsWinner;
+  @ColumnInfo(name = "twoPtsDifference")
+  private int twoPtsDifference;
   @ColumnInfo(name = "homeThreePtsScore")
   private int homeThreePtsScore;
   @ColumnInfo(name = "awayThreePtsScore")
   private int awayThreePtsScore;
   @ColumnInfo(name = "ThreePtsWinner")
-  private String ThreePtsWinner;
-  @ColumnInfo(name = "ThreePtsDifference")
-  private int ThreePtsDifference;
+  private String threePtsWinner;
+  @ColumnInfo(name = "threePtsDifference")
+  private int threePtsDifference;
   @ColumnInfo(name = "homeReboundsScore")
   private int homeReboundsScore;
   @ColumnInfo(name = "awayReboundsScore")
   private int awayReboundsScore;
-  @ColumnInfo(name = "ReboundsWinner")
-  private String ReboundsWinner;
-  @ColumnInfo(name = "ReboundsDifference")
-  private int ReboundsDifference;
+  @ColumnInfo(name = "reboundsWinner")
+  private String reboundsWinner;
+  @ColumnInfo(name = "reboundsDifference")
+  private int reboundsDifference;
   @ColumnInfo(name = "homeAssistsScore")
   private int homeAssistsScore;
   @ColumnInfo(name = "awayAssistsScore")
   private int awayAssistsScore;
-  @ColumnInfo(name = "AssistsWinner")
-  private String AssistsWinner;
-  @ColumnInfo(name = "AssistsDifference")
-  private int AssistsDifference;
+  @ColumnInfo(name = "assistsWinner")
+  private String assistsWinner;
+  @ColumnInfo(name = "assistsDifference")
+  private int assistsDifference;
 
 
-  public BasketballMatch(@NonNull String basketballMatch_id, String league, @NonNull String date, String homeTeam,
-                         String awayTeam, int homeTwoPtsScore, int awayTwoPtsScore, String twoPtsWinner, int twoPtsDifference,
-                         int homeThreePtsScore, int awayThreePtsScore, String threePtsWinner, int threePtsDifference,
-                         int homeReboundsScore, int awayReboundsScore, String reboundsWinner, int reboundsDifference,
-                         int homeAssistsScore, int awayAssistsScore, String assistsWinner, int assistsDifference) {
-    BasketballMatch_id = basketballMatch_id;
+  public BasketballMatch(@NonNull String basketballMatch_id, String league, @NonNull String date, String homeTeam, String awayTeam, int homeTwoPtsScore, int awayTwoPtsScore, String twoPtsWinner, int twoPtsDifference, int homeThreePtsScore, int awayThreePtsScore, String threePtsWinner, int threePtsDifference, int homeReboundsScore, int awayReboundsScore, String reboundsWinner, int reboundsDifference, int homeAssistsScore, int awayAssistsScore, String assistsWinner, int assistsDifference) {
+    this.basketballMatch_id = basketballMatch_id;
     this.league = league;
     this.date = date;
     this.homeTeam = homeTeam;
     this.awayTeam = awayTeam;
     this.homeTwoPtsScore = homeTwoPtsScore;
     this.awayTwoPtsScore = awayTwoPtsScore;
-    TwoPtsWinner = twoPtsWinner;
-    TwoPtsDifference = twoPtsDifference;
+    this.twoPtsWinner = twoPtsWinner;
+    this.twoPtsDifference = twoPtsDifference;
     this.homeThreePtsScore = homeThreePtsScore;
     this.awayThreePtsScore = awayThreePtsScore;
-    ThreePtsWinner = threePtsWinner;
-    ThreePtsDifference = threePtsDifference;
+    this.threePtsWinner = threePtsWinner;
+    this.threePtsDifference = threePtsDifference;
     this.homeReboundsScore = homeReboundsScore;
     this.awayReboundsScore = awayReboundsScore;
-    ReboundsWinner = reboundsWinner;
-    ReboundsDifference = reboundsDifference;
+    this.reboundsWinner = reboundsWinner;
+    this.reboundsDifference = reboundsDifference;
     this.homeAssistsScore = homeAssistsScore;
     this.awayAssistsScore = awayAssistsScore;
-    AssistsWinner = assistsWinner;
-    AssistsDifference = assistsDifference;
+    this.assistsWinner = assistsWinner;
+    this.assistsDifference = assistsDifference;
   }
 
   @NonNull
   public String getBasketballMatch_id() {
-    return BasketballMatch_id;
+    return basketballMatch_id;
   }
 
   public void setBasketballMatch_id(@NonNull String basketballMatch_id) {
-    BasketballMatch_id = basketballMatch_id;
+    this.basketballMatch_id = basketballMatch_id;
   }
 
   public String getLeague() {
@@ -142,19 +141,19 @@ public class BasketballMatch  {
   }
 
   public String getTwoPtsWinner() {
-    return TwoPtsWinner;
+    return twoPtsWinner;
   }
 
   public void setTwoPtsWinner(String twoPtsWinner) {
-    TwoPtsWinner = twoPtsWinner;
+    this.twoPtsWinner = twoPtsWinner;
   }
 
   public int getTwoPtsDifference() {
-    return TwoPtsDifference;
+    return twoPtsDifference;
   }
 
   public void setTwoPtsDifference(int twoPtsDifference) {
-    TwoPtsDifference = twoPtsDifference;
+    this.twoPtsDifference = twoPtsDifference;
   }
 
   public int getHomeThreePtsScore() {
@@ -174,19 +173,19 @@ public class BasketballMatch  {
   }
 
   public String getThreePtsWinner() {
-    return ThreePtsWinner;
+    return threePtsWinner;
   }
 
   public void setThreePtsWinner(String threePtsWinner) {
-    ThreePtsWinner = threePtsWinner;
+    this.threePtsWinner = threePtsWinner;
   }
 
   public int getThreePtsDifference() {
-    return ThreePtsDifference;
+    return threePtsDifference;
   }
 
   public void setThreePtsDifference(int threePtsDifference) {
-    ThreePtsDifference = threePtsDifference;
+    this.threePtsDifference = threePtsDifference;
   }
 
   public int getHomeReboundsScore() {
@@ -206,19 +205,19 @@ public class BasketballMatch  {
   }
 
   public String getReboundsWinner() {
-    return ReboundsWinner;
+    return reboundsWinner;
   }
 
   public void setReboundsWinner(String reboundsWinner) {
-    ReboundsWinner = reboundsWinner;
+    this.reboundsWinner = reboundsWinner;
   }
 
   public int getReboundsDifference() {
-    return ReboundsDifference;
+    return reboundsDifference;
   }
 
   public void setReboundsDifference(int reboundsDifference) {
-    ReboundsDifference = reboundsDifference;
+    this.reboundsDifference = reboundsDifference;
   }
 
   public int getHomeAssistsScore() {
@@ -238,48 +237,120 @@ public class BasketballMatch  {
   }
 
   public String getAssistsWinner() {
-    return AssistsWinner;
+    return assistsWinner;
   }
 
   public void setAssistsWinner(String assistsWinner) {
-    AssistsWinner = assistsWinner;
+    this.assistsWinner = assistsWinner;
   }
 
   public int getAssistsDifference() {
-    return AssistsDifference;
+    return assistsDifference;
   }
 
   public void setAssistsDifference(int assistsDifference) {
-    AssistsDifference = assistsDifference;
+    this.assistsDifference = assistsDifference;
   }
 
 
   @Override
   public String toString() {
     return "BasketballMatch{" +
-        "BasketballMatch_id='" + BasketballMatch_id + '\'' +
+        "BasketballMatch_id='" + basketballMatch_id + '\'' +
         ", league='" + league + '\'' +
         ", date='" + date + '\'' +
         ", homeTeam='" + homeTeam + '\'' +
         ", awayTeam='" + awayTeam + '\'' +
         ", homeTwoPtsScore=" + homeTwoPtsScore +
         ", awayTwoPtsScore=" + awayTwoPtsScore +
-        ", TwoPtsWinner='" + TwoPtsWinner + '\'' +
-        ", TwoPtsDifference=" + TwoPtsDifference +
+        ", TwoPtsWinner='" + twoPtsWinner + '\'' +
+        ", TwoPtsDifference=" + twoPtsDifference +
         ", homeThreePtsScore=" + homeThreePtsScore +
         ", awayThreePtsScore=" + awayThreePtsScore +
-        ", ThreePtsWinner='" + ThreePtsWinner + '\'' +
-        ", ThreePtsDifference=" + ThreePtsDifference +
+        ", ThreePtsWinner='" + threePtsWinner + '\'' +
+        ", ThreePtsDifference=" + threePtsDifference +
         ", homeReboundsScore=" + homeReboundsScore +
         ", awayReboundsScore=" + awayReboundsScore +
-        ", ReboundsWinner='" + ReboundsWinner + '\'' +
-        ", ReboundsDifference=" + ReboundsDifference +
+        ", ReboundsWinner='" + reboundsWinner + '\'' +
+        ", ReboundsDifference=" + reboundsDifference +
         ", homeAssistsScore=" + homeAssistsScore +
         ", awayAssistsScore=" + awayAssistsScore +
-        ", AssistsWinner='" + AssistsWinner + '\'' +
-        ", AssistsDifference=" + AssistsDifference +
+        ", AssistsWinner='" + assistsWinner + '\'' +
+        ", AssistsDifference=" + assistsDifference +
         '}';
   }
+
+  public BasketballMatch(Parcel in) {
+    this.basketballMatch_id = in.readString();
+    this.date = in.readString();
+    this.league= in.readString();
+    this.homeTeam = in.readString();
+    this.awayTeam = in.readString();
+    this.homeTwoPtsScore = in.readInt();
+    this.awayTwoPtsScore = in.readInt();
+    this.twoPtsWinner = in.readString();
+    this.twoPtsDifference = in.readInt();
+    this.homeThreePtsScore = in.readInt();
+    this.awayThreePtsScore = in.readInt();
+    this.threePtsWinner = in.readString();
+    this.threePtsDifference = in.readInt();
+    this.homeThreePtsScore = in.readInt();
+    this.awayThreePtsScore = in.readInt();
+    this.threePtsWinner = in.readString();
+    this.threePtsDifference = in.readInt();
+    this.homeReboundsScore = in.readInt();
+    this.awayReboundsScore = in.readInt();
+    this.reboundsWinner = in.readString();
+    this.reboundsDifference = in.readInt();
+    this.homeAssistsScore = in.readInt();
+    this.awayAssistsScore = in.readInt();
+    this.assistsWinner = in.readString();
+    this.assistsDifference = in.readInt();
+  }
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+
+    dest.writeString(this.basketballMatch_id);
+    dest.writeString(this.date);
+    dest.writeString(this.league);
+    dest.writeString(this.homeTeam);
+    dest.writeString(this.awayTeam);
+    dest.writeInt(this.homeTwoPtsScore);
+    dest.writeInt(this.awayTwoPtsScore);
+    dest.writeString(this.twoPtsWinner);
+    dest.writeInt(this.twoPtsDifference);
+    dest.writeInt(this.homeThreePtsScore);
+    dest.writeInt(this.awayThreePtsScore);
+    dest.writeString(this.threePtsWinner);
+    dest.writeInt(this.threePtsDifference);
+    dest.writeInt(this.homeReboundsScore);
+    dest.writeInt(this.awayReboundsScore);
+    dest.writeString(this.reboundsWinner);
+    dest.writeInt(this.reboundsDifference);
+    dest.writeInt(this.homeAssistsScore);
+    dest.writeInt(this.awayAssistsScore);
+    dest.writeString(this.assistsWinner);
+    dest.writeInt(this.assistsDifference);
+  }
+
+  public static final Parcelable.Creator<BasketballMatch> CREATOR =
+      new Parcelable.Creator<BasketballMatch>() {
+        @Override
+        public BasketballMatch createFromParcel(Parcel source) {
+          return new BasketballMatch(source);
+        }
+
+        @Override
+        public BasketballMatch[] newArray(int size) {
+          return new BasketballMatch[size];
+        }
+      };
 
 
 }

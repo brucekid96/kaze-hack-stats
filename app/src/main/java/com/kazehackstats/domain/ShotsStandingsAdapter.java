@@ -33,10 +33,12 @@ import java.util.concurrent.Executors;
 public class ShotsStandingsAdapter extends RecyclerView.Adapter<ShotsStandingsAdapter.MyViewHolder> {
 //  private List<Match> mMatches;
   private List<TeamStatLine>mTeamStatLines;
+  private List<Match> mMatchs;
   private Context mContext;
 
-  public ShotsStandingsAdapter(
+  public ShotsStandingsAdapter(List<Match> mMatchs,
       Context mContext) {
+    this.mMatchs = mMatchs;
     this.mContext = mContext;
   }
 
@@ -46,7 +48,10 @@ public class ShotsStandingsAdapter extends RecyclerView.Adapter<ShotsStandingsAd
     Log.d(TAG, "mTeamStatLines List " +mTeamStatLines);
   }
 
-
+  public void setData(List<Match>list) {
+    this.mMatchs=list;
+    notifyDataSetChanged();
+  }
   @NonNull
   @Override
   public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

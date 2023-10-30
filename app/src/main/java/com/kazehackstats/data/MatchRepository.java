@@ -4,27 +4,31 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
+import com.kazehackstats.data.remote.AmplifyAPI;
+import com.kazehackstats.data.remote.AppSyncApi;
+
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
 public class MatchRepository {
 
-
+private MainDatabase db;
   private MatchDao matchDao;
   private Executor executor;
+  private AppSyncApi appSyncApi;
 
   public MatchRepository(Context context) {
-    MainDatabase db = MainDatabase.getDatabase(context);
+    appSyncApi = new AppSyncApi(context);
+    db = MainDatabase.getDatabase(context);
     matchDao = db.matchDao();
     executor = Executors.newSingleThreadExecutor();
   }
 
-    public LiveData<List<Match>> getAllMatches() {
+    public Observable<List<Match>> getAllMatches() {
    return matchDao.getAllMatches();
   }
 
@@ -39,6 +43,21 @@ public class MatchRepository {
   }
   public LiveData<Integer> getMatchesPlayedByTeam(String team) {
     return matchDao.getMatchesPlayedByTeam(team);
+  }
+
+  public Completable insert(Match match) {
+    return db.matchDao().insert(match)
+        .andThen(AppSyncApi.addMatch(match));
+  }
+
+  public Completable delete(Match match)  {
+    return db.matchDao().delete(match)
+        .andThen(AmplifyAPI.removeMatch(match));
+  }
+
+  public Completable update(Match match)  {
+    return db.matchDao().update(match)
+        .andThen(AppSyncApi.updateMatch(match));
   }
 
   public LiveData<List<TeamStatLine>> getShotStats(String league) {
@@ -110,6 +129,9 @@ public class MatchRepository {
     executor.execute(() -> matchDao.bulkInsert(matches));
   }
 
-
+  public Completable syncMatchs() {
+    return appSyncApi.getMatchs()
+        .flatMapCompletable(db.matchDao()::bulkInsert);
+  }
 
 }

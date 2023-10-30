@@ -2,6 +2,7 @@ package com.kazehackstats.domain;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,8 +10,16 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.kazehackstats.R;
+import com.kazehackstats.data.BasketballMatchRepository;
+
+import io.reactivex.Completable;
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class NBA extends AppCompatActivity {
+  private static final String DBG_TAG = NBA.class.getSimpleName();
   private CardView mTwoPts;
   private CardView mHTwoPts;
   private CardView mThreePts;
@@ -23,6 +32,7 @@ public class NBA extends AppCompatActivity {
   private CardView mAThreePts;
   private CardView mARebounds;
   private CardView mAAssists;
+  private CompositeDisposable mDisposable = new CompositeDisposable();
 
 
   @Override
@@ -93,7 +103,7 @@ public class NBA extends AppCompatActivity {
     p.putExtra("league","NBA");
     mAThreePts.setOnClickListener(view -> startActivity(p));
 
-    mARebounds= findViewById(R.id.Away_rebound_card);
+    mARebounds= findViewById(R.id.away_rebounds_card);
     Intent q = new Intent(this, AwayReboundsStandings.class);
     q.putExtra("league","NBA");
     mARebounds.setOnClickListener(view -> startActivity(q));
@@ -103,6 +113,21 @@ public class NBA extends AppCompatActivity {
     r.putExtra("league","NBA");
     mAAssists.setOnClickListener(view -> startActivity(r));
 
+//    mDisposable.add(
+//        Completable.concatArray(
+//            syncBasketballMatches())
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(() -> {
+//            }, e -> {
+//              Log.d(DBG_TAG, "Synchronization failed: " + e.toString() + ", cause = " + e.getCause());
+//            }));
+
 
   }
+
+//  private Completable syncBasketballMatches() {
+//    return Single.fromCallable(() -> new BasketballMatchRepository(this))
+//        .flatMapCompletable(BasketballMatchRepository::syncBasketballMatchs);
+//  }
 }

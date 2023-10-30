@@ -2,17 +2,32 @@ package com.kazehackstats.data;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Observable;
 
 @Dao
 public interface BasketballMatchDao {
 
+  @Insert
+  Completable insert(BasketballMatch basketballMatch);
+  @Delete
+  Completable delete(BasketballMatch basketballMmatch);
+  @Update
+  Completable update(BasketballMatch basketballMatch);
+
+  @Query("SELECT * FROM `basketball_match`")
+  Observable<List<BasketballMatch>> getAllMatches();
+
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  void bulkInsert(List<BasketballMatch> basketballMatches);
+  Completable bulkInsert(List<BasketballMatch> basketballMatches);
 
   @Query("with teams as (select homeTeam as team from `basketball_match`  where league =:league union select awayTeam as team from `basketball_match` where league=:league ),\n" +
       "team_matches as (select * from teams as t inner join`basketball_match` as m on t.team = m.homeTeam or t.team = m.awayTeam),\n" +
@@ -39,7 +54,7 @@ public interface BasketballMatchDao {
       "all_three_pts as (select * from home_three_pts union all select * from away_three_pts),\n" +
       "avg_three_pts as (select team, sum(threePtsScore) / sum(matches_played) as avg_three_pts from all_three_pts group by team),\n" +
       "home_differences as (select team, sum(homeThreePtsScore) - sum(awayThreePtsScore) as threePts_difference, count(*) as matches_played from team_matches where team = homeTeam group by team),\n" +
-      "away_differences as (select team, sum(awayThreePtsScore) - sum(homeTwoPtsScore) as threePts_difference, count(*) as matches_played from team_matches where team = awayTeam group by team),\n" +
+      "away_differences as (select team, sum(awayThreePtsScore) - sum(homeThreePtsScore) as threePts_difference, count(*) as matches_played from team_matches where team = awayTeam group by team),\n" +
       "all_differences as (select * from home_differences union all select * from away_differences),\n" +
       "avg_difference as (select team, sum(threePts_difference) / sum(matches_played) as avg_difference from all_differences group by team),\n" +
       "team_three_pts_stats as (select teams.team, matches_played, three_pts_wins as stat_wins, avg_three_pts as stat_average_count, avg_difference as stat_average_difference from teams, matches_played, three_pts_wins, avg_three_pts, avg_difference on teams.team = matches_played.team and teams.team = three_pts_wins.team and  teams.team = avg_three_pts.team and teams.team = avg_difference.team) \n" +
@@ -166,10 +181,10 @@ public interface BasketballMatchDao {
       "away_three_pts as (select team, sum(awayThreePtsScore) as threePtsScore, count(*) as matches_played from away_matches where team = awayTeam group by team),\n" +
       "all_three_pts as (select * from home_three_pts union all select * from away_three_pts),\n" +
       "avg_three_pts as (select team, sum(threePtsScore) / sum(matches_played) as avg_three_pts from all_three_pts group by team),\n" +
-      "home_differences as (select team, sum(homeTwoPtsScore) - sum(awayTwoPtsScore) as two_pts_difference, count(*) as matches_played from away_matches where team = homeTeam group by team),\n" +
-      "away_differences as (select team, sum(awayTwoPtsScore) - sum(homeTwoPtsScore) as two_pts_difference, count(*) as matches_played from away_matches where team = awayTeam group by team),\n" +
+      "home_differences as (select team, sum(homeThreePtsScore) - sum(awayThreePtsScore) as three_pts_difference, count(*) as matches_played from away_matches where team = homeTeam group by team),\n" +
+      "away_differences as (select team, sum(awayThreePtsScore) - sum(homeThreePtsScore) as three_pts_difference, count(*) as matches_played from away_matches where team = awayTeam group by team),\n" +
       "all_differences as (select * from home_differences union all select * from away_differences),\n" +
-      "avg_difference as (select team, sum(two_pts_difference) / sum(matches_played) as avg_difference from all_differences group by team),\n" +
+      "avg_difference as (select team, sum(three_pts_difference) / sum(matches_played) as avg_difference from all_differences group by team),\n" +
       "team_three_pts_stats as (select teams.team, matches_played, three_pts_wins as stat_wins, avg_three_pts as stat_average_count, avg_difference as stat_average_difference from teams, matches_played, three_pts_wins, avg_three_pts, avg_difference on teams.team = matches_played.team and teams.team = three_pts_wins.team and  teams.team = avg_three_pts.team and teams.team = avg_difference.team) \n" +
       "select * from team_three_pts_stats order by stat_wins desc ")
   LiveData<List<TeamStatLine>> getAwayThreePtsStats(String league);

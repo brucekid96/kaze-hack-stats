@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kazehackstats.R;
+import com.kazehackstats.data.BasketballMatch;
 import com.kazehackstats.data.TeamStatLine;
 
 import java.util.List;
@@ -21,10 +22,12 @@ import java.util.List;
 public class HomeAssistsStandingsAdapter extends RecyclerView.Adapter<HomeAssistsStandingsAdapter.MyViewHolder> {
   //  private List<Match> mMatches;
   private List<TeamStatLine> mTeamStatLines;
+  private List<BasketballMatch> mBasketballMatchs;
   private Context mContext;
 
-  public HomeAssistsStandingsAdapter(
+  public HomeAssistsStandingsAdapter(List<BasketballMatch> mBasketballMatchs,
       Context mContext) {
+    this.mBasketballMatchs = mBasketballMatchs;
     this.mContext = mContext;
   }
 
@@ -33,7 +36,10 @@ public class HomeAssistsStandingsAdapter extends RecyclerView.Adapter<HomeAssist
     notifyDataSetChanged();
     Log.d(TAG, "mTeamStatLines List " +mTeamStatLines);
   }
-
+  public void setData(List<BasketballMatch>list) {
+    this.mBasketballMatchs=list;
+    notifyDataSetChanged();
+  }
 
   @NonNull
   @Override

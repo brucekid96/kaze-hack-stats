@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.kazehackstats.R;
 
 public class Bundesliga extends AppCompatActivity {
+  private static final String DBG_TAG = Bundesliga.class.getSimpleName();
   private CardView mShots;
   private CardView mHShots;
   private CardView mShotsOnGoal;

@@ -1,21 +1,49 @@
 package com.kazehackstats.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+
+import com.kazehackstats.data.remote.AmplifyAPI;
+import com.kazehackstats.data.remote.AppSyncApi;
 
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import io.reactivex.Completable;
+import io.reactivex.Observable;
+
 public class BasketballMatchRepository {
   private BasketballMatchDao basketballMatchDao;
   private Executor executor;
+  private MainDatabase db;
+  private AppSyncApi appSyncApi;
 
   public BasketballMatchRepository(Context context) {
-    MainDatabase db = MainDatabase.getDatabase(context);
+    appSyncApi = new AppSyncApi(context);
+    db = MainDatabase.getDatabase(context);
     basketballMatchDao = db.basketballMatchDao();
     executor = Executors.newSingleThreadExecutor();
+  }
+
+  public Observable<List<BasketballMatch>> getAllMatches() {
+    return basketballMatchDao.getAllMatches();
+  }
+
+  public Completable insert(BasketballMatch basketballMatch) {
+    return db.basketballMatchDao().insert(basketballMatch)
+        .andThen(AppSyncApi.addBasketballMatch(basketballMatch));
+  }
+  public Completable update(BasketballMatch basketballMatch) {
+    return db.basketballMatchDao().update(basketballMatch)
+        .andThen(AppSyncApi.updateBasketballMatch(basketballMatch));
+  }
+
+  public Completable delete(BasketballMatch basketballMatch) {
+    return db.basketballMatchDao().delete(basketballMatch)
+        .andThen(AmplifyAPI.removeBasketballMatch(basketballMatch));
   }
 
   public LiveData<List<TeamStatLine>> getTwoPtsStats(String league) {
@@ -59,6 +87,12 @@ public class BasketballMatchRepository {
   }
 
   public void insertAll(List<BasketballMatch> basketballMatches) {
-    executor.execute(() -> basketballMatchDao.bulkInsert(basketballMatches));
+    executor.execute(() -> basketballMatchDao.bulkInsert(basketballMatches)
+        );
+  }
+
+  public Completable syncBasketballMatchs() {
+    return  appSyncApi.getBasketballMatchs()
+        .flatMapCompletable(db.basketballMatchDao()::bulkInsert);
   }
 }
